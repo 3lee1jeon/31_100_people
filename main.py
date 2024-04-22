@@ -12,3 +12,30 @@ def random_boxes():
 
 
 print(random_boxes())
+
+# 전략 없는 경우
+def no_strategy(random_boxes):
+    pass
+
+# 전략 있는 경우
+def strategy(random_boxes):
+    pass
+
+
+# 전략 있음 임의 함수 명 : staraegy()
+def calculate_prob(n):
+    success_no_strategy = 0
+    success_strategy = 0
+    
+    for _ in range(n):
+        random_boxes = random_boxes()
+
+        if no_strategy(random_boxes):
+            success_no_strategy += 1 
+        if strategy(random_boxes):
+            success_strategy += 1
+
+    no_strategy_prob = success_no_strategy / n
+    strategy_prob = success_strategy / n
+
+    return {"no_strategy": no_strategy_prob, "strategy": strategy_prob}
